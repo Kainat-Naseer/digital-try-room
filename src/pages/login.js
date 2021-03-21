@@ -13,7 +13,7 @@ const Login = () => {
 
   return (
     <div className="limiter">
-      <div className="container-login100" style={{ backgroundImage: `url(${require("../src/images/bg-01.jpg")})` }}>
+      <div className="container-login100" style={{ backgroundImage: `url(${require("../../src/images/bg-01.jpg")})` }}>
         <div className="wrap-login100">
           <form className="login100-form validate-form">
             {/* <span className="login100-form-logo"> */}

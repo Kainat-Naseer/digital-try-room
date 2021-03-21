@@ -14,10 +14,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Login from './login';
-import Home from './Home';
-import SignUp from './SignUp';
-import ForgetPassword from './ForgetPassword';
+import Login from './pages/login';
+import Home from './pages/Home';
+import SignUp from './pages/SignUp';
+import ForgetPassword from './pages/ForgetPassword';
 import "./App.css";
 import 'react-material-iconic-font';
 import "react-fontawesome";
