@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react"
+import React, { useRef, useCallback, useState } from "react"
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,7 +8,7 @@ import {
 import * as tf from "@tensorflow/tfjs";
 import Webcam from "react-webcam";
 import * as bodyPix from "@tensorflow-models/body-pix";
-import logo from '../images/moaviz.jpeg';
+import helperImage from '../images/1.jpg';
 
 const videoConstraints = {
   width: 1280,
@@ -17,12 +17,16 @@ const videoConstraints = {
 };
 
 const Home = () => {
+  const [isResult, setIsResult] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const webcamRef = useRef(null);
   // const canvasRef = useRef(null);
 
   var imageSrc;
 
   const runBodysegment = async () => {
+    setIsResult(true);
+    setIsLoading(true);
     const net = await bodyPix.load();
     console.log("BodyPix model loaded.");
     //  Loop and detect hands
@@ -46,6 +50,7 @@ const Home = () => {
     bodyPix.drawMask(
       canvas, image, coloredPartImage, opacity, maskBlurAmount,
       flipHorizontal);
+    setIsLoading(false);
   }
 
   const capture = useCallback(
@@ -53,32 +58,47 @@ const Home = () => {
       imageSrc = webcamRef.current.getScreenshot();
       console.log("debugging", imageSrc)
 
-      var image = new Image();
+      var image = document.getElementById("temp-image");
       image.src = imageSrc;
       image.id = "usman"
-      document.body.appendChild(image);
     },
     [webcamRef]
   );
 
-  const handleButtonClick = () => {
-    runBodysegment();
-  }
-
   return (
     <header className="App-header">
 
-      <button onClick={handleButtonClick}>submit</button>
+      {isLoading && <div>
+        <div className="loader"></div>
+        <p>Please wait for processing..</p>
+      </div>
+      }
 
-      <Webcam
-        audio={false}
-        height={720}
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-        width={1280}
-        videoConstraints={videoConstraints}
-      />
-      <button onClick={capture}>Capture photo</button>
+      {isResult === false ? (
+        <div className="parent">
+          <div className="child1">
+            <img src={helperImage} style={{width: "1280px", height:"720px"}}/>
+          </div>
+
+
+          <div className="child2">
+            <Webcam
+              audio={false}
+              height={720}
+              ref={webcamRef}
+              screenshotFormat="image/jpeg"
+              width={1280}
+              videoConstraints={videoConstraints}
+            />
+          </div>
+          <button onClick={() => { capture(); runBodysegment(); }}>Capture photo</button>
+        </div>
+      ) : ""}
+
+
+
+      <img id="temp-image" style={{ display: "none" }} />
+
 
       <canvas
         id="canvas"
