@@ -681,3 +681,12 @@ iframe {
   z-index: 10;
   opacity: 0.9;
 }
+
+.guide-image{
+  height: 500px;
+}
+
+.next-button-image-capture{
+  position: absolute;
+  top: 500px;
+}
