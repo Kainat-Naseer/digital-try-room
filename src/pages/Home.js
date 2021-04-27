@@ -5,21 +5,20 @@ import FirstStepIntructions from "./instructions/FirstStepIntructions";
 import FirstImageCapture from "./imageCapture/FirstImageCapture";
 import SecondStepInstructions from "./instructions/SecondStepIntructions";
 import SecondImageCapture from "./imageCapture/SecondImageCapture";
+import Nav from "../components/nav";
 
 const Home = (props) => {
   console.log("home props", props);
 
   return (
-    <div>
-
-      <StepWizard initialStep={1}>
+    <div className="body-container">
+      <StepWizard initialStep={1} nav={<Nav />}>
         <FirstStepIntructions />
         <FirstImageCapture />
 
         <SecondStepInstructions />
         <SecondImageCapture />
       </StepWizard>
-
     </div>
   )
 }
