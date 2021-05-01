@@ -25,7 +25,7 @@ const SecondImageCapture = (props) => {
     const net = await bodyPix.load();
     console.log("BodyPix model loaded.");
     //  Loop and detect hands
-    var image = document.getElementById("temp-image");
+    var image = document.getElementById("temp-image1");
 
     const segmentation = await net.segmentPersonParts(image, {
       flipHorizontal: false,
@@ -115,7 +115,7 @@ const SecondImageCapture = (props) => {
           </>
         )}
 
-      <img id="temp-image" src={tempImage} style={{ display: "none" }} />
+      <img id="temp-image1" src={tempImage} style={{ display: "none" }} />
     </div>
   )
 }
