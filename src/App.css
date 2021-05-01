@@ -71,8 +71,6 @@
 [ RESTYLE TAG ]*/
 
 * {
-	margin: 0px; 
-	padding: 0px; 
 	box-sizing: border-box;
 }
 
@@ -163,13 +161,13 @@ label {
 }
 
 /*---------------------------------------------*/
-button {
+.forms-button {
 	outline: none !important;
 	border: none;
 	background: transparent;
 }
 
-button:hover {
+.forms-button:hover {
 	cursor: pointer;
 }
 
@@ -673,6 +671,7 @@ iframe {
   position: relative;
   top: 0;
   left: 0;
+  width: 100%;
 }
 
 .child2{
@@ -681,6 +680,8 @@ iframe {
   left: 0;
   z-index: 10;
   opacity: 0.9;
+  width: 100%;
+  height: 100%;
 }
 
 .guide-image{
@@ -694,10 +695,48 @@ iframe {
 
 .navDot{
   color: gray;
-  margin-right: 10px; 
+  margin: 15px; 
 } 
 
 .active-step{
   color: black;
   text-decoration: underline;
+}
+
+.body-container{
+  padding: 30px;
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.registerNav{
+  margin-bottom: 30px;
+}
+
+.button-hover{
+  margin: 10px 0px;
+}
+
+.button-hover:hover{
+  cursor: pointer;
+}
+
+td{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+table{
+  border: 1px solid black;
+  margin: auto;
+}
+
+.child2 video {
+  width: 100%;
+  height: 100%;
+}
+
+.capture-buttons{
+  margin-top: 30px;
 }

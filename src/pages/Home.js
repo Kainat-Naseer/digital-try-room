@@ -6,6 +6,7 @@ import FirstImageCapture from "./imageCapture/FirstImageCapture";
 import SecondStepInstructions from "./instructions/SecondStepIntructions";
 import SecondImageCapture from "./imageCapture/SecondImageCapture";
 import Nav from "../components/nav";
+import Measurements from "./Measurements";
 
 const Home = (props) => {
   console.log("home props", props);
@@ -18,6 +19,7 @@ const Home = (props) => {
 
         <SecondStepInstructions />
         <SecondImageCapture />
+        <Measurements />
       </StepWizard>
     </div>
   )

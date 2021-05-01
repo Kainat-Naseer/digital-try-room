@@ -5,8 +5,6 @@ import * as bodyPix from "@tensorflow-models/body-pix";
 import helperImage from '../../images/helper.jpg';
 
 const videoConstraints = {
-  width: 1280,
-  height: 720,
   facingMode: "user"
 };
 
@@ -14,6 +12,8 @@ const FirstImageCapture = (props) => {
   const [isResult, setIsResult] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [tempImage, setTempImage] = useState('');
+  const [canvasShow, setCanvasShow] = useState(false);
+  const [isImageUpload, setIsImageUpload] = useState(false);
   const webcamRef = useRef(null);
   // const canvasRef = useRef(null);
 
@@ -34,6 +34,8 @@ const FirstImageCapture = (props) => {
     });
     console.log(segmentation);
 
+    setCanvasShow(true);
+    imageUploadSuccess();
     const coloredPartImage = bodyPix.toColoredPartMask(segmentation);
     const opacity = 0.7;
     const flipHorizontal = false;
@@ -46,6 +48,11 @@ const FirstImageCapture = (props) => {
       canvas, image, coloredPartImage, opacity, maskBlurAmount,
       flipHorizontal);
     setIsLoading(false);
+  }
+
+  const imageUploadSuccess = () => {
+    setTimeout(() => { setIsImageUpload(true) }, 3000);
+    setIsImageUpload(false);
   }
 
   const capture = useCallback(
@@ -67,26 +74,29 @@ const FirstImageCapture = (props) => {
       )}
 
       {isResult === false ? (
-        <div className="parent">
-          <div className="child1">
-            <img src={helperImage} style={{ width: "1000px", height: "550px" }} />
-          </div>
+        <>
+          <div className="parent">
+            <div id="guide-image" className="child1">
+              <img src={helperImage} />
+            </div>
 
-
-          <div className="child2">
-            <Webcam
-              audio={false}
-              height={550}
-              ref={webcamRef}
-              screenshotFormat="image/jpeg"
-              width={1000}
-              videoConstraints={videoConstraints}
-            />
+            <div className="child2">
+              <Webcam
+                audio={false}
+                ref={webcamRef}
+                id="webcam-preview"
+                screenshotFormat="image/jpeg"
+                videoConstraints={videoConstraints}
+              />
+            </div>
           </div>
-          <button onClick={() => { capture(); runBodySegment(); }}>Capture photo</button>
-        </div>
+          <button className="button-hover capture-buttons" onClick={() => { capture(); runBodySegment(); }}>Capture photo</button>
+        </>
       ) : (
+          canvasShow &&
           <>
+            {!isImageUpload &&
+              <div>upload successful</div>}
             <canvas
               id="canvas"
               style={{
@@ -101,7 +111,7 @@ const FirstImageCapture = (props) => {
                 height: 480,
               }}
             />
-            <button className="next-button-image-capture" onClick={props.nextStep}>Next Step</button>
+            <button className="next-button-image-capture button-hover" onClick={props.nextStep}>Next Step</button>
           </>
         )}
 

@@ -24,14 +24,14 @@ const ForgetPassword = (props) => {
 
             <div>
               <div className="container-login100-form-btn forget-password-button">
-                <button className="login100-form-btn">
+                <button className="login100-form-btn forms-button">
                   Back
                 </button>
               </div>
 
 
               <div className="container-login100-form-btn forget-password-button">
-                <button className="login100-form-btn">
+                <button className="login100-form-btn forms-button">
                   Send Email
                 </button>
               </div>
