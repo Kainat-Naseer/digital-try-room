@@ -1,16 +1,7 @@
-import React, { useState } from "react"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Home from './Home';
+import React from "react"
+import { Link } from "react-router-dom";
 
 const Login = () => {
-
-  const [count, setCount] = useState(0);
-
   return (
     <div className="limiter">
       <div className="container-login100" style={{ backgroundImage: `url(${require("../../src/images/bg-01.jpg")})` }}>

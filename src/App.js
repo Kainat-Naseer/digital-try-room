@@ -6,13 +6,12 @@
 // 6. Detect function
 // 7. Draw using drawMask
 
-import React, { useRef } from "react";
+import React from "react";
 // import logo from './logo.svg';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Login from './pages/login';
 import Home from './pages/Home';
@@ -30,7 +29,7 @@ function App() {
         <Switch>
 
           <Route path="/" exact>
-            <Login/>
+            <Login />
           </Route>
 
           <Route path="/log-in">

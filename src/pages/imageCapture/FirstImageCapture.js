@@ -77,7 +77,7 @@ const FirstImageCapture = (props) => {
         <>
           <div className="parent">
             <div id="guide-image" className="child1">
-              <img src={helperImage} />
+              <img alt="" src={helperImage} />
             </div>
 
             <div className="child2">

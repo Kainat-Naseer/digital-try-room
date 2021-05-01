@@ -5,7 +5,7 @@ import GuideImage from '../../images/guide.jpeg'
 const FirstStepIntructions = (props) => {
   return (
     <div>
-      <img className="guide-image" src={GuideImage}></img>
+      <img alt="Guide Image" className="guide-image" src={GuideImage}></img>
       <div>
         <button className="capture-buttons button-hover" onClick={props.nextStep}>Next Step</button>
       </div>
