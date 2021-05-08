@@ -1,16 +1,10 @@
-import React, { useState } from "react"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from "react"
 
-const ForgetPassword = (props) => {
+const ForgetPassword = () => {
 
   return (
     <div className="limiter">
-      <div className="container-login100" style={{ backgroundImage: `url(${require("../src/images/bg-01.jpg")})` }}>
+      <div className="container-login100" style={{ backgroundImage: `url(${require("../../src/images/bg-01.jpg")})` }}>
         <div className="wrap-login100">
           <form className="login100-form validate-form">
 
@@ -24,14 +18,14 @@ const ForgetPassword = (props) => {
 
             <div>
               <div className="container-login100-form-btn forget-password-button">
-                <button className="login100-form-btn">
+                <button className="login100-form-btn forms-button">
                   Back
                 </button>
               </div>
 
 
               <div className="container-login100-form-btn forget-password-button">
-                <button className="login100-form-btn">
+                <button className="login100-form-btn forms-button">
                   Send Email
                 </button>
               </div>

@@ -71,8 +71,6 @@
 [ RESTYLE TAG ]*/
 
 * {
-	margin: 0px; 
-	padding: 0px; 
 	box-sizing: border-box;
 }
 
@@ -163,13 +161,13 @@ label {
 }
 
 /*---------------------------------------------*/
-button {
+.forms-button {
 	outline: none !important;
 	border: none;
 	background: transparent;
 }
 
-button:hover {
+.forms-button:hover {
 	cursor: pointer;
 }
 
@@ -639,4 +637,124 @@ iframe {
 
 .reset-paswword-title{
   margin-bottom: 20px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.parent{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.child1{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.child2{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0.9;
+  width: 100%;
+  height: 100%;
+}
+
+.guide-image{
+  height: 500px;
+}
+
+.next-button-image-capture{
+  position: absolute;
+  top: 500px;
+}
+
+.navDot{
+  color: gray;
+  margin: 15px; 
+} 
+
+.active-step{
+  color: black;
+  text-decoration: underline;
+}
+
+.body-container{
+  padding: 30px;
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.registerNav{
+  margin-bottom: 30px;
+}
+
+.button-hover{
+  margin: 10px 0px;
+}
+
+.button-hover:hover{
+  cursor: pointer;
+}
+
+td{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+table{
+  border: 1px solid black;
+  margin: auto;
+}
+
+.child2 video {
+  width: 100%;
+  height: 100%;
+}
+
+.capture-buttons{
+  margin-top: 30px;
+}
+
+.loding-text{
+  margin: 30px;
+}
+
+#gender{
+  width: 100%;
+  margin-bottom: 15px;
+  padding-left: 33px;
+  height: 47px;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+#gender option{
+  color: black;
 }
