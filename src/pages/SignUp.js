@@ -22,8 +22,21 @@ const SignUp = () => {
               <input className="input100" type="text" name="username" placeholder="Username" />
             </div>
 
+            <div className="wrap-input100 validate-input" data-validate="Enter Height">
+              <input className="input100" type="number" name="height" placeholder="Height" />
+            </div>
+
+            <div className="wrap-input100 validate-input" data-validate="Enter Height">
+              <select name="gender" id="gender">
+                <option selected value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
             <div className="wrap-input100 validate-input" data-validate="Enter email">
-              <input className="input100" type="password" name="email" placeholder="Email" />
+              <input className="input100" type="email" name="email" required placeholder="Email" />
             </div>
 
             <div className="wrap-input100 validate-input" data-validate="Enter password">

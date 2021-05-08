@@ -69,7 +69,7 @@ const FirstImageCapture = (props) => {
       {isLoading && (
         <div>
           <div className="loader"></div>
-          <p>Please wait for processing..</p>
+          <p className="loding-text">Please wait for processing..</p>
         </div>
       )}
 

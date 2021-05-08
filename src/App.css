@@ -740,3 +740,21 @@ table{
 .capture-buttons{
   margin-top: 30px;
 }
+
+.loding-text{
+  margin: 30px;
+}
+
+#gender{
+  width: 100%;
+  margin-bottom: 15px;
+  padding-left: 33px;
+  height: 47px;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+#gender option{
+  color: black;
+}
