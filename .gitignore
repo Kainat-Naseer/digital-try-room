@@ -24,4 +24,4 @@ client/yarn-error.log*
 
 client/.eslintcache
 
-react-backend/node_modules
+server-side/node_modules
