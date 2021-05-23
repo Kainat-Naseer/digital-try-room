@@ -11,6 +11,20 @@ var cors = require('cors');
 var app = express();
 app.use(cors());
 
+const MongoClient = require('mongodb').MongoClient
+
+const connectionString = "mongodb+srv://digitalTryRoomDbUser:password321@digital-try-room-db.ptpu8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+MongoClient.connect(connectionString, { useUnifiedTopology: true })
+  .then(client => {
+    console.log('Connected to Database');
+    // const db = client.db('digital-try-room-db');
+    // const quotesCollection = db.collection('users')
+
+    // quotesCollection.insertOne({ name: "usman", password: "123456" })
+  })
+  .catch(error => console.error(error))
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
