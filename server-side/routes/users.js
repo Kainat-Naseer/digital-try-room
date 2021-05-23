@@ -3,6 +3,8 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+  // const db = client.db('digital-try-room-db');
+  console.log("debugging", db.collection("users").find())
   res.json([{
     id: 1,
     username: "samsepi0l"
