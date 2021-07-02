@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Measurements = () => {
+const Measurements = (props) => {
   return (
     <table>
       <thead>
@@ -11,32 +11,20 @@ const Measurements = () => {
       </thead>
       <tbody>
         <tr>
-          <td>Width</td>
-          <td>25 inches</td>
+          <td>Arms Length</td>
+          <td>{props.measurements.armsLength.toFixed(3)}</td>
         </tr>
         <tr>
-          <td>Back Shoulder Width</td>
-          <td>40 inches</td>
+          <td>Shoulder Width</td>
+          <td>{props.measurements.shoulderWidth.toFixed(3)}</td>
         </tr>
         <tr>
-          <td>Hip Grith</td>
-          <td>30 inches</td>
+          <td>Shoulder To Waist Length</td>
+          <td>{props.measurements.shoulderToWaist.toFixed(3)}</td>
         </tr>
         <tr>
-          <td>Height</td>
-          <td>21 inches</td>
-        </tr>
-        <tr>
-          <td>Chest Grith</td>
-          <td>15 inches</td>
-        </tr>
-        <tr>
-          <td>Thigh Grith</td>
-          <td>21 inches</td>
-        </tr>
-        <tr>
-          <td>Waist Grith</td>
-          <td>24 inches</td>
+          <td>Legs Length</td>
+          <td>{props.measurements.legsLength.toFixed(3)}</td>
         </tr>
       </tbody>
     </table>
