@@ -9,7 +9,7 @@ import Nav from "../components/nav";
 import Measurements from "./Measurements";
 
 const Home = (props) => {
-  const [measurements, setMeasurements] = useState({});
+  const [measurements, setMeasurements] = useState(null);
 
   const measurementsresult = (value) => {
     setMeasurements(value);
