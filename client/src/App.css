@@ -758,3 +758,8 @@ table{
 #gender option{
   color: black;
 }
+
+#height-input{
+  margin: 20px;
+  border: 1px solid black;
+}

@@ -4,7 +4,7 @@ import * as bodyPix from "@tensorflow-models/body-pix";
 
 import helperImage from '../../images/helper.jpg';
 
-const heightInInches = 73.2;
+// const heightInInches = 73.2;
 
 const videoConstraints = {
   facingMode: "user"
@@ -17,6 +17,7 @@ const FirstImageCapture = (props) => {
   const [canvasShow, setCanvasShow] = useState(false);
   const [isImageUpload, setIsImageUpload] = useState(false);
   const webcamRef = useRef(null);
+  const [inputValue, setInputValue] = useState("60");
   // const canvasRef = useRef(null);
 
   var imageSrc;
@@ -43,7 +44,7 @@ const FirstImageCapture = (props) => {
     });
     console.log("debugging segmentation", segmentation);
 
-    var pixelsPerInch = (eucDistance(Object.values(segmentation.allPoses[0].keypoints[0].position), Object.values(segmentation.allPoses[0].keypoints[16].position)) + 5) / heightInInches;
+    var pixelsPerInch = (eucDistance(Object.values(segmentation.allPoses[0].keypoints[0].position), Object.values(segmentation.allPoses[0].keypoints[16].position)) + 5) / inputValue;
 
     var armsLength = eucDistance(Object.values(segmentation.allPoses[0].keypoints[5].position), Object.values(segmentation.allPoses[0].keypoints[9].position)) / pixelsPerInch;
 
@@ -54,7 +55,7 @@ const FirstImageCapture = (props) => {
     var shoulderWidth = eucDistance(Object.values(segmentation.allPoses[0].keypoints[5].position), Object.values(segmentation.allPoses[0].keypoints[6].position)) / pixelsPerInch;
 
 
-    props.measurementsresult({armsLength: armsLength, legsLength: legsLength, shoulderToWaist: shoulderToWaist, shoulderWidth: shoulderWidth});
+    props.measurementsresult({ armsLength: armsLength, legsLength: legsLength, shoulderToWaist: shoulderToWaist, shoulderWidth: shoulderWidth });
 
     console.log("arms Length", armsLength);
     console.log("legs Length", legsLength);
@@ -91,6 +92,10 @@ const FirstImageCapture = (props) => {
     [webcamRef]
   );
 
+  const handleChange = (event) => {
+    setInputValue(event.target.value)
+  }
+
   return (
     <div>
       {isLoading && (
@@ -99,7 +104,7 @@ const FirstImageCapture = (props) => {
           <p className="loding-text">Please wait for processing..</p>
         </div>
       )}
-
+      <input id="height-input" type="number" placeholder="Enter Height In Inches" value={inputValue} onChange={handleChange} />
       {isResult === false ? (
         <>
           <div className="parent">
@@ -142,7 +147,7 @@ const FirstImageCapture = (props) => {
           </>
         )}
 
-      <img id="temp-image" src={tempImage} style={{ display: "none" }} crossOrigin='anonymous' />
+      <img id="temp-image" src={"https://lh5.googleusercontent.com/hsPcEgIwvqYdtEkdPfv1GDUgASfkUkX_b__Sn00gD-nN5IU62n6pyVyVD0ZUjqjQXqG9MkklT7ED7DDNrtzv=w1366-h600-rw"} style={{ display: "none" }} crossOrigin='anonymous' />
     </div>
   )
 }
