@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import StepWizard from 'react-step-wizard';
 
 import FirstStepIntructions from "./instructions/FirstStepIntructions";
@@ -9,17 +9,21 @@ import Nav from "../components/nav";
 import Measurements from "./Measurements";
 
 const Home = (props) => {
-  console.log("home props", props);
+  const [measurements, setMeasurements] = useState(null);
+
+  const measurementsresult = (value) => {
+    setMeasurements(value);
+  }
 
   return (
     <div className="body-container">
       <StepWizard initialStep={1} nav={<Nav />}>
         <FirstStepIntructions />
-        <FirstImageCapture />
+        <FirstImageCapture measurementsresult={measurementsresult}/>
 
         <SecondStepInstructions />
         <SecondImageCapture />
-        <Measurements />
+        <Measurements measurements={measurements} />
       </StepWizard>
     </div>
   )
