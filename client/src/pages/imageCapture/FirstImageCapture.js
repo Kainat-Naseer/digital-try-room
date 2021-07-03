@@ -3,7 +3,7 @@ import Webcam from "react-webcam";
 import * as bodyPix from "@tensorflow-models/body-pix";
 
 import helperImage from '../../images/helper.jpg';
-
+import pic from '../../images/huraira.jpeg';
 // const heightInInches = 73.2;
 
 const videoConstraints = {
@@ -104,9 +104,14 @@ const FirstImageCapture = (props) => {
           <p className="loding-text">Please wait for processing..</p>
         </div>
       )}
-      <input id="height-input" type="number" placeholder="Enter Height In Inches" value={inputValue} onChange={handleChange} />
+
       {isResult === false ? (
         <>
+          <div>
+            <p>Enter Your Height in Inches:</p>
+            <input id="height-input" type="number" placeholder="Enter Height In Inches" value={inputValue} onChange={handleChange} />
+          </div>
+
           <div className="parent">
             <div id="guide-image" className="child1">
               <img alt="" src={helperImage} />
@@ -147,15 +152,11 @@ const FirstImageCapture = (props) => {
           </>
         )}
 
-      <img id="temp-image" src={"https://lh5.googleusercontent.com/hsPcEgIwvqYdtEkdPfv1GDUgASfkUkX_b__Sn00gD-nN5IU62n6pyVyVD0ZUjqjQXqG9MkklT7ED7DDNrtzv=w1366-h600-rw"} style={{ display: "none" }} crossOrigin='anonymous' />
+      {/* <img id="temp-image" src={pic} style={{ display: "none" }} crossOrigin='anonymous' /> */}
+      
+      <img id="temp-image" src={tempImage} style={{ display: "none" }} crossOrigin='anonymous' />
     </div>
   )
 }
 
 export default FirstImageCapture;
-
-
-
-// https://lh5.googleusercontent.com/hsPcEgIwvqYdtEkdPfv1GDUgASfkUkX_b__Sn00gD-nN5IU62n6pyVyVD0ZUjqjQXqG9MkklT7ED7DDNrtzv=w1366-h600-rw   usmans pic link
-
-// https://lh4.googleusercontent.com/0dKu7aaam5TLnQ7fFVc2SOFEAVeKELbmx9LOVIRn8YACcA7LLP8wHlP1w-ZncPKJXn6Rw-KhyH6L7UHf7J1D=w1366-h657-rw   huraira
